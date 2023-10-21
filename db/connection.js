@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv"
 dotenv.config()
-const connection = mongoose.connect("mongodb+srv://rohitbaghel073:Rohit123@cluster0.rapu0zl.mongodb.net/securityfeature")
+const connection = mongoose.connect(process.env.Mongo_url)
 .then((response)=>{
     console.log("connection is created with mongodb")
 })

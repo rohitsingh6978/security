@@ -6,7 +6,6 @@ import allroutes from "./routes/allroutes.js"
 dotenv.config();
 const app = express();
 // connection()
-console.log("nuihyuguybhbyuvvhjbgyv")
 app.use(express.json())
 connection
 app.use(allroutes)
