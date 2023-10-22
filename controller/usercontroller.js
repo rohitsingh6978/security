@@ -50,3 +50,13 @@ export const Login = async (req, res) => {
     }
   };
   
+export const getDetails = async(req,res)=>{
+  try {
+    const userDetails = await registerschemamodal.find()
+    res.status(200).json(userDetails)
+  } catch (error) {
+    res.status(500).json("Request failed")
+  }
+ 
+
+}
