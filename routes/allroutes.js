@@ -1,5 +1,5 @@
 import express, { response } from "express";
-import { Register, getDetails } from "../controller/usercontroller.js";
+import { Register, deleteUser, getDetails, updateDetail } from "../controller/usercontroller.js";
 import { Login } from "../controller/usercontroller.js";
 const router = express.Router();
 import imageupload from "../model/imageupload.js";
@@ -35,4 +35,6 @@ router.post("/upload-image", imageupload.single("image"), (req, res) => {
     })
   })
   router.get("/getdetails",getDetails)
+  router.patch("/update/:id",updateDetail)
+  router.delete("/delete/:id",deleteUser)
 export default router

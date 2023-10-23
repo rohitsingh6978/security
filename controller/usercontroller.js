@@ -25,11 +25,9 @@ export const Login = async (req, res) => {
   
       // Find the user in the database by email
       const user = await registerschemamodal.findOne({ email });
-  
       if (!user) {
         return res.status(401).json({ message: "User not found" });
       }
-  
       // Compare the provided password with the stored hashed password
       const passwordMatch = await bcrypt.compare(password, user.password);
   
@@ -59,4 +57,25 @@ export const getDetails = async(req,res)=>{
   }
  
 
+}
+
+export const updateDetail = async(req,res)=>{
+  try {
+    const _id = req.params.id
+        const update = await registerschemamodal.findByIdAndUpdate(_id,
+            {set: true})
+        res.json({message : "updated succesfully", data : update})  
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteUser = async (req,res)=>{
+  try {
+      const _id = req.params.id
+      const deleteuser = await registerschemamodal.findByIdAndDelete(_id) 
+      res.json({message : "Deleted sucessfully",data : deleteuser})
+  } catch (error) {
+      console.log(error)
+  }
 }
